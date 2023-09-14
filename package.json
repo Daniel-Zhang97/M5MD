@@ -1,0 +1,12 @@
+{
+  "name": "mission5mmdz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "begin": "docker build -t backendv1 ./backend && docker build -t frontendv1 ./frontend"
+  },
+  "author": "",
+  "license": "ISC"
+}
