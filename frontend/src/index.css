@@ -1,0 +1,104 @@
+
+.navbar {
+  background-color: white;
+  padding: 10px;
+  border-bottom: 2px solid #333;
+  margin: 0;
+  max-height: 150px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links li {
+  margin: auto;
+  font-size: 1.5em;
+  font-family: sans-serif;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  transition: background-color 0.5s, color 0.5s;
+  padding: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: white;
+  background-color: grey;
+}
+
+.headerImg {
+  max-height: 80px;
+  margin-left: -70px;
+}
+
+.phone-number {
+  display: flex;
+  align-items: center;
+  background-color: #e4343b;
+  border-radius: 5px;
+  color: white;
+}
+
+.phone-number svg {
+  margin-right: 8px;
+  padding-left: 9px;
+}
+
+.phone-number p{
+  padding-right: 9px;
+}
+
+.dropDown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #e4343b;
+  width: 200px;
+  position: absolute;
+  z-index: 100;
+  margin-top: 70px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  opacity: 0; 
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; 
+}
+
+.drop-menu-container {
+  list-style-type: none; 
+  display: flex;
+  justify-content: center;
+}
+
+.show {
+  opacity: 1; 
+  visibility: visible; 
+}
+
+.dropdownmenu {
+  display: flex;
+  justify-content: center;
+}
+
+.drop-menu-item{
+  color: white !important;
+  /* border: 1px solid black; */
+  text-align: center;
+  width: 200px;
+  transition: background-color 0.5s, color 0.5s
+}
+
+.drop-menu-item:hover {
+  color: #e4343b !important;
+  background-color: white !important;
+}

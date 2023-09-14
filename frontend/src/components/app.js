@@ -25,13 +25,16 @@ function App() {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Save Data</button>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button onClick={handleSubmit}>Save Data</button>
+      </div>
+      <div></div>
     </div>
   )
 }
