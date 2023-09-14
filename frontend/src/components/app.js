@@ -1,22 +1,38 @@
 import React, { useState } from 'react'
 
 function App() {
-  const [showPicture, setShowPicture] = useState(false)
+  const [message, setMessage] = useState('')
 
-  const togglePicture = () => {
-    setShowPicture(!showPicture)
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/saveData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message }),
+      })
+
+      if (response.status === 201) {
+        console.log('Data saved successfully')
+      } else {
+        console.error('Failed to save data')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
   }
 
-  const imgSource = './images/cat.jpg'
-
   return (
-    <>
-      <div>Hello!</div>
-      {showPicture && <img src={imgSource} alt="A cat" />}
-      <button onClick={togglePicture}>
-        {showPicture ? 'Hide Picture' : 'Show Picture'}
-      </button>
-    </>
+    <div>
+      <input
+        type="text"
+        placeholder="Enter message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Save Data</button>
+    </div>
   )
 }
 
