@@ -1,12 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const app = express() // Create an Express application instance
+const app = express()
 const cors = require('cors')
 app.use(cors())
 app.use(express.json())
+const PORT = 3001
 
 mongoose
-  .connect('mongodb://127.0.0.1:27017/test', {
+  .connect('mongodb://my-mongodb:27017/', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -33,8 +34,6 @@ app.post('/saveData', async (req, res) => {
     res.status(500).json({ message: 'Server error' })
   }
 })
-
-const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
