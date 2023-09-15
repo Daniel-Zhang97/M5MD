@@ -68,7 +68,7 @@ body {
 }
 
 .dropdownmenu {
-  position: relative; /* Added for positioning the dropdown */
+  position: relative;
 }
 
 .dropDown{
@@ -87,15 +87,15 @@ body {
   border-bottom: 3px solid black;
   opacity: 0; 
   visibility: hidden;
-  transform: scaleY(0); /* Initially hidden */
-  transform-origin: top; /* Set the transformation origin to top */
+  transform: scaleY(0); 
+  transform-origin: top; 
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;  
 }
 
 .show {
-  opacity: 1; 
-  visibility: visible; 
-  transform: scaleY(1)
+  opacity: 1 !important; 
+  visibility: visible !important; 
+  transform: scaleY(1) !important;
 }
 
 
@@ -163,6 +163,7 @@ body {
   padding-left: 15px;
 }
 
+
 .home-container {
   width: 100%;
   height: fit-content;
@@ -182,7 +183,7 @@ h1{
   font-size: 64px;
   font-style: normal;
   font-weight: 600;
-  line-height: 60px; /* 93.75% */
+  line-height: 60px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -197,7 +198,7 @@ h1{
 }
 
 .frontpage-description-container p{
-  font-family: sans-serif;/* Our platform offers a seamless and user-friendly experience, designed to connect prospective buyers and renters with their ideal properties. Our intuitive search filters, interactive maps, and detailed property profiles provide in-depth information, ensuring you make an informed decision. */
+  font-family: sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px; 
@@ -220,4 +221,67 @@ h1{
   font-family: sans-serif;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   text-decoration: none;
+}
+
+.homepage-expandable-subsection{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.homepage-expandable-subsection-toggler{
+  font-family: sans-serif;
+  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  color: rgb(117, 117, 117);
+  cursor: pointer;
+  width: 100%;
+}
+
+.homepage-dropdown-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(239, 239, 239);
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  opacity: 0; 
+  visibility: hidden;
+  transform: scaleY(0); 
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;  
+}
+
+.homepage-dropdown-description p {
+  margin: 20px;
+  font-size: 1.3em;
+  font-family: sans-serif;
+  text-align: right;
+}
+
+.homepage-expandable-icon {
+  margin: 18px auto 10px 30px;
+}
+
+.homepage-expandable-bottom-border {
+  width: 98%;
+  border-bottom: 2px solid lightgray;
+  margin: auto;
+}
+
+.homepage-expandable-subsection-text{
+  margin-left: auto;
+  margin-right: 40px;
+  margin-top: 18px;
+}
+
+.show-description {
+  opacity: 1 !important; 
+  visibility: visible !important; 
+  transform: scaleY(1) !important;
+  position: relative;
+  width: 98%;
+  margin: auto;
 }
