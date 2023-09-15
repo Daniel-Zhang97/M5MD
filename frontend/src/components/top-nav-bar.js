@@ -2,6 +2,8 @@ import React from 'react'
 import { BsTelephoneInbound } from 'react-icons/bs'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { useState } from 'react'
+import { AiOutlineDown } from 'react-icons/ai'
+import { IoPersonOutline } from 'react-icons/io5'
 
 function TopNavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -13,54 +15,65 @@ function TopNavBar() {
   return (
     <div>
       <div className="navbar">
-        <ul className="nav-links">
-          <li>
-            <a href="/index">
-              <img
-                src="./images/header-logo.jpg"
-                className="headerImg"
-                alt="Metro logo"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="/index">Home</a>
-          </li>
-          <li className="dropdownmenu">
-            <a href="#" onClick={toggleDropdown}>
-              Services
-            </a>
+        <a href="/index" className="headerImg-anchor">
+          <img
+            src="./images/header-logo.jpg"
+            className="headerImg"
+            alt="Metro logo"
+          />
+        </a>
+        <a href="/" className="navbar-item">
+          Home
+        </a>
+        <a href="#" className="navbar-item">
+          Tenants
+        </a>
+        <a href="#" className="navbar-item">
+          News
+        </a>
+        <a href="#" className="navbar-item">
+          About Us
+        </a>
+        <a href="#" className="navbar-item">
+          Contact
+        </a>
+        <a
+          href="#"
+          onClick={toggleDropdown}
+          className="drop-down-anchor navbar-item"
+        >
+          <div className="drop-down-menu">
+            Services
+            <div className="drop-down-icon-container">
+              <AiOutlineDown className="drop-down-icon" />
+            </div>
             <div className={`dropDown ${isDropdownOpen ? 'show' : ''}`}>
               <div className="drop-menu-container">
-                <a className="drop-menu-item">Properties</a>
+                <a className="drop-menu-item" href="/searchpage.html">
+                  Properties
+                </a>
               </div>
               <div className="drop-menu-container">
                 <a className="drop-menu-item">Rentals</a>
               </div>
+              <div className="drop-menu-container">
+                <a className="drop-menu-item">Purchase Planning</a>
+              </div>
             </div>
-          </li>
-          <li>
-            <a href="/Tenants">Tenants</a>
-          </li>
-          <li>
-            <a href="/News">News</a>
-          </li>
-          <li>
-            <a href="/About-us">About Us</a>
-          </li>
-          <li>
-            <a href="/Contact">Contact</a>
-          </li>
-          <li>
-            <a href="/FAQs">FAQs</a>
-          </li>
-          <li>
-            <div className="phone-number">
-              <BsTelephoneInbound />
-              <p>09 391 4642</p>
-            </div>
-          </li>
-        </ul>
+          </div>
+        </a>
+        <a href="/FAQs" className="navbar-item">
+          FAQs
+        </a>
+        <div className="navbar-right">
+          <div className="phone-number-container">
+            <BsTelephoneInbound className="phone-number-icon" />
+            <p className="phone-number">09 391 4642</p>
+          </div>
+          <div className="navbar-contact">
+            <IoPersonOutline className="navbar-contact-icon" />
+          </div>
+        </div>
       </div>
     </div>
   )

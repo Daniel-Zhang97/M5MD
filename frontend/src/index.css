@@ -1,49 +1,61 @@
+body {
+  margin: 0;
+}
 
 .navbar {
   background-color: white;
-  padding: 10px;
-  border-bottom: 2px solid #333;
+  border-bottom: 3px solid #333;
   margin: 0;
-  max-height: 150px;
-}
-
-.nav-links {
+  max-height: 80px;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
-.nav-links li {
+.navbar-item {
   margin: auto;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: sans-serif;
-}
-
-.nav-links a {
-  color: black;
-  text-decoration: none;
+  position: relative; 
   transition: background-color 0.5s, color 0.5s;
-  padding: 20px;
+  padding: 27.5px 40px;
   border-radius: 3px;
   cursor: pointer;
+  color: black;
+  text-decoration: none;
+  margin: 0;
 }
 
-.nav-links a:hover {
+
+.navbar-item:hover {
   color: white;
-  background-color: grey;
+  background-color: #e4343b;
 }
 
 .headerImg {
-  max-height: 80px;
-  margin-left: -70px;
+  max-height: 50px;
+  margin-top: 15px;
+  margin-left: 18px;
+  margin-right: 80px;
 }
 
-.phone-number {
+.headerImg-anchor{
+  margin-right: 150px; ;
+}
+
+.headerImg-anchor:hover {
+  background-color: white !important;
+}
+
+.phone-number-container {
   display: flex;
   align-items: center;
   background-color: #e4343b;
   border-radius: 5px;
   color: white;
+  font-size: 1.2em;
 }
 
 .phone-number svg {
@@ -55,50 +67,157 @@
   padding-right: 9px;
 }
 
+.dropdownmenu {
+  position: relative; /* Added for positioning the dropdown */
+}
+
 .dropDown{
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #e4343b;
-  width: 200px;
+  width: 180px;
   position: absolute;
   z-index: 100;
-  margin-top: 70px;
+  margin-top: 52.5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
   opacity: 0; 
   visibility: hidden;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; 
-}
-
-.drop-menu-container {
-  list-style-type: none; 
-  display: flex;
-  justify-content: center;
+  transform: scaleY(0); /* Initially hidden */
+  transform-origin: top; /* Set the transformation origin to top */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;  
 }
 
 .show {
   opacity: 1; 
   visibility: visible; 
+  transform: scaleY(1)
 }
 
-.dropdownmenu {
+
+.drop-menu-container {
+  list-style-type: none; 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.drop-down-menu {
   display: flex;
   justify-content: center;
 }
 
 .drop-menu-item{
   color: white !important;
-  /* border: 1px solid black; */
   text-align: center;
-  width: 200px;
-  transition: background-color 0.5s, color 0.5s
+  padding: 20px 10px;
+  transition: background-color 0.5s, color 0.5s;
+  text-decoration: none;
 }
 
 .drop-menu-item:hover {
   color: #e4343b !important;
   background-color: white !important;
+}
+
+.drop-down-anchor{
+  display: flex;
+  justify-content: center;
+}
+
+.drop-down-icon-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto; 
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin: 0 40px 0 auto; 
+}
+
+.navbar-contact{
+  margin: 20px;
+  background-color: #e4343b;
+  color: white;
+  border-radius: 4px;
+}
+
+.navbar-contact-icon {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  margin: auto;
+}
+
+.phone-number{
+  margin: 0;
+  padding: 11px 20px;
+}
+
+.phone-number-icon {
+  padding-left: 15px;
+}
+
+.home-container {
+  width: 100%;
+  height: fit-content;
+}
+
+.frontpage-image-container {
+  width: 100%;
+  position: relative; 
+}
+
+.front-page-image {
+  width: 100%;
+}
+
+h1{
+  font-family: sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 60px; /* 93.75% */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.frontpage-info-container {
+  margin: 100px 0 0 3% ;
+  max-width: 60%;
+}
+
+.frontpage-description-container{
+  max-width: 50%;
+  
+}
+
+.frontpage-description-container p{
+  font-family: sans-serif;/* Our platform offers a seamless and user-friendly experience, designed to connect prospective buyers and renters with their ideal properties. Our intuitive search filters, interactive maps, and detailed property profiles provide in-depth information, ensuring you make an informed decision. */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px; 
+  margin-bottom: 60px;
+}
+
+.property-listing-link-container {
+  z-index: 1000;
+  background-color: #e4343b;
+  position: absolute;
+  top: 30px;
+  left: 55px;
+}
+
+.property-listing-anchor {
+  color: white;
+  background-color: #e4343b ;
+  font-size: 30px;
+  padding: 12px;
+  font-family: sans-serif;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
 }

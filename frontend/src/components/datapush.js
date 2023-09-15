@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function App() {
+function Datapush() {
   const [message, setMessage] = useState('')
 
   const handleSubmit = async () => {
@@ -39,4 +39,4 @@ function App() {
   )
 }
 
-export default App
+export default Datapush
