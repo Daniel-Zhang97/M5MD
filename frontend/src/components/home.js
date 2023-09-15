@@ -1,6 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
+import { BiCopyright } from 'react-icons/bi'
+import { AiOutlineTwitter } from 'react-icons/ai'
+import { AiFillFacebook } from 'react-icons/ai'
+import { AiOutlineInstagram } from 'react-icons/ai'
 
 export const Home = () => {
   const [isTailoredServicesOpen, setIsTailoredServicesOpen] = useState(false)
@@ -19,6 +23,10 @@ export const Home = () => {
 
   const toggleChangeToMetro = () => {
     setIsChangeToMetro(!isChangeToMetro)
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
   }
 
   return (
@@ -152,7 +160,81 @@ export const Home = () => {
         <div className="homepage-expandable-bottom-border"></div>
       </div>
       <div className="homepage-footer-container">
-        <div className="homepage-footer-subsection-container">chechceceeck</div>
+        <div className="homepage-footer-subsection-container-left">
+          <div className="homepage-footer-metro-logo-container">
+            <img
+              src="./images/header-logo.jpg"
+              className="footerImg"
+              alt="Metro logo"
+            />
+          </div>
+          <div className="homepage-footer-metro-description">
+            Metro NZ Property Management has offices conveniently located in
+            Central Auckland but operates throughout New Zealand and also
+            internationally.
+          </div>
+          <div className="homepage-footer-address">
+            Level 33, ANZ Centre,<br></br> 23-29 Albert St,<br></br> Auckland
+            1010,<br></br> New Zealand
+          </div>
+          <div className="homepage-footer-copyright">
+            <BiCopyright className="footer-copyright-icon" />
+            Copyright 2023
+          </div>
+        </div>
+        <div className="homepage-footer-subsection-container-middle">
+          <div className="homepage-footer-social-responsibility-container">
+            Social Responsibility
+            <img src="./images/timEnoughLogo.png"></img>
+          </div>
+          <div className="homepage-footer-awards-container">
+            <div>Awards</div>
+            <div className="homepage-footer-awards-images-container">
+              <img src="./images/nzBusinessLogo.png"></img>
+              <img src="./images/queenCityLaw.png"></img>
+              <img src="./images/reaLogo.png"></img>
+              <img src="./images/topReviewsLogo.png"></img>
+              <img src="./images/wespacAwardLogo.png"></img>
+            </div>
+          </div>
+          <div className="homepage-footer-media-container">
+            <div className="homepage-footer-phone-email">
+              <p>Phone Number: </p>
+              <p className="homepage-footer-contact-info">09 391 4642 </p>
+              <p>Email:</p>
+              <p className="homepage-footer-contact-info">info@metronz.co.nz</p>
+            </div>
+            <div className="homepage-footer-media-icons">
+              <AiOutlineTwitter className="social-media-icon" />
+              <AiOutlineInstagram className="social-media-icon" />
+              <AiFillFacebook className="social-media-icon" />
+            </div>
+          </div>
+        </div>
+        <div className="homepage-footer-subsection-container-right">
+          <div>
+            <h2 className="get-in-touch">Get In Touch</h2>
+          </div>
+          <div className="homepage-footer-customer-contact-form-container">
+            <form className="customer-contact-form" onSubmit={handleFormSubmit}>
+              <input type="text" placeholder="Your Name" />
+              <input type="text" placeholder="Your Email" />
+              <input
+                type="text"
+                placeholder="Subject"
+                className="input-form-subject"
+              />
+              <input
+                type="text"
+                placeholder="Message"
+                className="input-form-message"
+              />
+              <button type="submit" className="customer-contact-form-submit">
+                SEND
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   )
