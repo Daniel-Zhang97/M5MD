@@ -9,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/search" element={<Searchpage />}></Route>
+      <Route path="/data" element={<Datapush />}></Route>
     </Routes>
   )
 }

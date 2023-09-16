@@ -49,7 +49,7 @@ function TopNavBar() {
             </div>
             <div className={`dropDown ${isDropdownOpen ? 'show' : ''}`}>
               <div className="drop-menu-container">
-                <a className="drop-menu-item" href="/searchpage.html">
+                <a className="drop-menu-item" href="/search">
                   Properties
                 </a>
               </div>
