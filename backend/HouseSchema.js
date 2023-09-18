@@ -20,6 +20,7 @@ const houseListingSchema = new mongoose.Schema({
   topDownView: Buffer,
   insideLivingRoom: Buffer,
   mapImage: Buffer,
+  matchPercentage: Number,
 })
 
 const HouseListing = mongoose.model('HouseListing', houseListingSchema)

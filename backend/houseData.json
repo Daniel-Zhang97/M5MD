@@ -6,7 +6,7 @@
       "type": "house",
       "bedrooms": 3,
       "year": 2000,
-      "price": 425000,
+      "price": 480,
       "hasAirCon": false,
       "bathrooms": 1,
       "carports": 1,
@@ -19,28 +19,30 @@
       "hasHealthyHomeStandard": true,
       "topDownView": "./images/1RooseveltRoadTopDown.png",
       "insideLivingRoom": "",
-      "mapImage": "./images/RooseveltMap.png"
+      "mapImage": "./images/RooseveltMap.png",
+      "matchPercentage": 0
     },
     {
-      "streetAddress": "91 Norman lesser drive",
-      "suburb": "Western Heights",
+      "streetAddress": "34 Pacific Drive, Southbridge, Selwyn, Canterbury",
+      "suburb": "Southbridge",
       "type": "house",
       "bedrooms": 4,
       "year": 1997,
-      "price": 600000,
-      "hasAirCon": false,
-      "bathrooms": 1,
-      "carports": 1,
+      "price": 500,
+      "hasAirCon": true,
+      "bathrooms": 3,
+      "carports": 3,
       "hasCarpet": true,
       "hasFireplace": true,
-      "isNorthFacing": false,
-      "hasUnderfloorHeating": true,
+      "isNorthFacing": true,
+      "hasUnderfloorHeating": false,
       "isAnimalFriendly": true,
       "hasHotTub": false,
       "hasHealthyHomeStandard": true,
-      "topDownView": "",
+      "topDownView": "./images/PacificRoadView.png",
       "insideLivingRoom": "",
-      "mapImage": ""
+      "mapImage": "",
+      "matchPercentage": 0
     }
   ]
 }

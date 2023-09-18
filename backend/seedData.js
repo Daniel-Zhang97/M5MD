@@ -9,7 +9,7 @@ commander
   .description('Seed data into the HouseListings database')
   .action(async () => {
     try {
-      await mongoose.connect('mongodb://my-mongodb:27017/HouseListings', {
+      await mongoose.connect('mongodb://localhost:27018/HouseListings', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })

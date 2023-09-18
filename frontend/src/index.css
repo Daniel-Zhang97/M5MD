@@ -455,3 +455,135 @@ h1{
 
 
 /* End of home page styling */
+/* Start of Search Page Styling */
+
+.search-page-container {
+  position: relative;
+}
+
+.search-page-background-map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.search-page-background-map-container img {
+  width: 100%;
+}
+
+.search-page-filter-and-items-container {
+  position: absolute !important;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 1.5% 0 0 2%;
+  z-index: 100;
+
+}
+
+.search-page-filter-anchor-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #e4343b;
+  color: white;
+  font-size: 20px;
+  
+}
+
+.search-page-filter-anchor-container * {
+  margin: auto 15px;
+  padding: 10px 0;
+}
+
+.search-page-result-container {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: row;
+  height: 220px;
+  background-color: white;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.search-page-result-heart-icon {
+  position: absolute;
+  font-size: 25px;
+  margin: 10px 0 0 10px;
+  color: white;
+}
+
+.search-page-result-thumbnail {
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-page-result-thumbnail-container {
+  max-width: 40%;
+  overflow: hidden;
+}
+
+.search-page-result-descriptions-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.search-page-result-match-and-key-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 20%;
+  margin-top: 20px;
+}
+
+.search-page-result-match-and-key-container *{
+  font-weight: 600; 
+}
+
+
+.search-page-result-match-and-key-container p {
+  margin: auto 10px auto auto;
+}
+
+.search-page-result-match-and-key-container h4 {
+  font-weight: bolder;
+  margin: auto 10px;
+}
+
+.search-page-result-address-container {
+  width: 40%;
+  margin: 25px 10px 10px 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 27px;
+
+}
+
+.search-page-result-icons-container {
+  margin-top: auto;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 26px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page-result-icons-container-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-page-result-icons-container-right {
+  margin: auto 10px auto auto;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.search-page-result-icon {
+  margin: auto 8px ;
+}

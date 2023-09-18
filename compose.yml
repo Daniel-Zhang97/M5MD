@@ -7,11 +7,11 @@ services:
     image: mongo
     restart: always
     ports:
-      - 27017:27017
+      - 27018:27017
     volumes:
       - my-mongo:/data/db
-    networks:
-    - m5md
+    # networks:
+    # - m5md
 
   mongo-express:
     image: mongo-express
@@ -24,8 +24,8 @@ services:
       - my-mongo:/data/db
     depends_on:
       - my-mongodb
-    networks:
-    - m5md
+    # networks:
+    # - m5md
 
   backend:
     build:
@@ -34,8 +34,8 @@ services:
       - "3001:3001" 
     depends_on:
       - my-mongodb  
-    networks:
-    - m5md
+    # networks:
+    # - m5md
 
   frontend:
     build:
@@ -44,12 +44,12 @@ services:
       - "3000:3000"  
     depends_on:
       - backend  
-    networks:
-    - m5md
+    # networks:
+    # - m5md
 
 volumes:
   my-mongo:
 
-networks:
-  m5md:
-    driver: bridge
+# networks:
+#   m5md:
+#     driver: bridge

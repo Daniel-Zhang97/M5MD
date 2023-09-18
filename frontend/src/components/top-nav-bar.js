@@ -1,6 +1,5 @@
 import React from 'react'
 import { BsTelephoneInbound } from 'react-icons/bs'
-import Dropdown from 'react-bootstrap/Dropdown'
 import { useState } from 'react'
 import { AiOutlineDown } from 'react-icons/ai'
 import { IoPersonOutline } from 'react-icons/io5'
