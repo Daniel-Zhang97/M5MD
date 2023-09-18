@@ -1,0 +1,46 @@
+{
+  "propertiesList": [
+    {
+      "streetAddress": "1 Roosevelt Road, Western Heights, Rotorua",
+      "suburb": "Western Heights",
+      "type": "house",
+      "bedrooms": 3,
+      "year": 2000,
+      "price": 425000,
+      "hasAirCon": false,
+      "bathrooms": 1,
+      "carports": 1,
+      "hasCarpet": true,
+      "hasFireplace": true,
+      "isNorthFacing": false,
+      "hasUnderfloorHeating": true,
+      "isAnimalFriendly": true,
+      "hasHotTub": false,
+      "hasHealthyHomeStandard": true,
+      "topDownView": "./images/1RooseveltRoadTopDown.png",
+      "insideLivingRoom": "",
+      "mapImage": "./images/RooseveltMap.png"
+    },
+    {
+      "streetAddress": "91 Norman lesser drive",
+      "suburb": "Western Heights",
+      "type": "house",
+      "bedrooms": 4,
+      "year": 1997,
+      "price": 600000,
+      "hasAirCon": false,
+      "bathrooms": 1,
+      "carports": 1,
+      "hasCarpet": true,
+      "hasFireplace": true,
+      "isNorthFacing": false,
+      "hasUnderfloorHeating": true,
+      "isAnimalFriendly": true,
+      "hasHotTub": false,
+      "hasHealthyHomeStandard": true,
+      "topDownView": "",
+      "insideLivingRoom": "",
+      "mapImage": ""
+    }
+  ]
+}

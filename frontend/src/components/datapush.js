@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function App() {
+function Datapush() {
   const [message, setMessage] = useState('')
 
   const handleSubmit = async () => {
@@ -25,15 +25,18 @@ function App() {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Save Data</button>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button onClick={handleSubmit}>Save Data</button>
+      </div>
+      <div></div>
     </div>
   )
 }
 
-export default App
+export default Datapush
