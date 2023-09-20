@@ -26,7 +26,7 @@ import { AiFillCaretDown } from 'react-icons/ai'
 
 export const Searchpage = () => {
   const [backgroundMap, setBackgroundMap] = useState(null)
-  const [searchOverlayActive, setSearchOverlay] = useState(true)
+  const [searchOverlayActive, setSearchOverlay] = useState(false)
   let [allData, setAllData] = useState([])
   const [suburb, setSuburb] = useState('')
   const [propertyType, setPropertyType] = useState('')
@@ -50,6 +50,41 @@ export const Searchpage = () => {
   const [matchedData, setMatchedData] = useState([])
   const [expandedInfo, setExpandedInfo] = useState(false)
   const [expandedInfo1, setExpanded1] = useState(0)
+  const [buttonState, setButtonState] = useState({
+    button1: false,
+    button2: false,
+    button3: false,
+    button4: false,
+    button5: false,
+    button6: false,
+    button7: false,
+    button8: false,
+    wifi: false,
+    water: false,
+    power: false,
+    gas: false,
+  })
+
+  const handleUselessClick = (buttonName) => {
+    setButtonState((prevState) => ({
+      ...prevState,
+      [buttonName]: !prevState[buttonName],
+    }))
+  }
+
+  const renderButton = (buttonName, icon, text) => {
+    return (
+      <button
+        className={`local-amenities-buttons fld ${
+          buttonState[buttonName] ? 'useless-button-on' : ''
+        }`}
+        onClick={() => handleUselessClick(buttonName)}
+      >
+        {icon}
+        <p>{text}</p>
+      </button>
+    )
+  }
 
   const handleButtonClick = (text) => {
     setSearchText(text)
@@ -120,11 +155,6 @@ export const Searchpage = () => {
 
   const toggleSearchOverlay = () => {
     setSearchOverlay(!searchOverlayActive)
-    console.log(suburb)
-    // console.log(
-    //   'this is alldata 1 matchpercentate:' + allData[1].matchPercentage
-    // )
-    console.log('this is matchedData:' + matchedData)
   }
 
   const handleSliderChange = (newValue) => {
@@ -229,10 +259,13 @@ export const Searchpage = () => {
         matchPercentage -= 20
       }
 
-      if (hasAirCon && !item.hasAirCon) {
+      if ((hasAirCon && !item.hasAirCon) || (!hasAirCon && item.hasAirCon)) {
         matchPercentage -= 10
       }
-      if (hasFireplace && !item.hasFireplace) {
+      if (
+        (hasFireplace && !item.hasFireplace) ||
+        (!hasFireplace && item.hasFireplace)
+      ) {
         matchPercentage -= 10
       }
 
@@ -259,7 +292,7 @@ export const Searchpage = () => {
   return (
     <>
       <div className="search-page-container">
-        <div className="search-page-filter-and-items-container">
+        <div className="search-page-filter-and-items-container extralong ">
           <a
             onClick={() => {
               toggleSearchOverlay()
@@ -324,51 +357,59 @@ export const Searchpage = () => {
           ))}
           {allData.map((item, index) => (
             <div
-              className={`search-page-result-container absolute expandedinfo ${
+              className={`search-page-result-container absolute expandedinfo fld ${
                 !expandedInfo || expandedInfo1 !== index ? 'hide' : ''
               }`}
               key={index}
-              onClick={() => {
-                setExpandedInfo(!expandedInfo)
-                setExpanded1(index)
-              }}
             >
-              <div className="search-page-result-thumbnail-container">
-                <AiOutlineHeart className="search-page-result-heart-icon" />
-                <img
-                  className="search-page-result-thumbnail"
-                  src={`data:image/png;base64,${encodeBase64FromArray(
-                    item.topDownView.data
-                  )}`}
-                  alt={`Image ${index}`}
-                />
-              </div>
-              <div className="search-page-result-descriptions-container">
-                <div className="search-page-result-match-and-key-container">
-                  <h4>
-                    {matchedData[index] > 0
-                      ? `${matchedData[index]}% match`
-                      : null}
-                  </h4>
-                  <p>${item.price}/wk</p>
+              <div className="w100 h100 fld">
+                <div className="expanded-view-heart-price flr">
+                  <AiOutlineHeart className="expanded-heart-icon" />
+                  {matchedData[index] && (
+                    <p className="expanded-match">{`${matchedData[index]}% match`}</p>
+                  )}
+                  <p className="expanded-price">{`$${item.price}/wk`}</p>
                 </div>
-                <div className="search-page-result-address-container">
-                  {item.streetAddress}
+                <div className="wideview">
+                  <img
+                    className="full-length"
+                    src={`data:image/png;base64,${encodeBase64FromArray(
+                      item.topDownView.data
+                    )}`}
+                    alt={`Image ${index}`}
+                  />
                 </div>
-                <div className="search-page-result-icons-container">
-                  <div className="search-page-result-icons-container-left">
-                    <LuBedDouble className="search-page-result-icon" />
-                    <p>{item.bedrooms}</p>
-                    <LuBath className="search-page-result-icon" />
-                    <p>{item.bathrooms}</p>
+                <div className="expanded-view-description-container fld">
+                  <div className="expanded-view-address-container">
+                    <p className="small-title no-margin">
+                      {[allData[index].streetAddress]}
+                    </p>
                   </div>
-                  <div className="search-page-result-icons-container-right">
-                    {item.isNorthFacing ? (
-                      <LiaAppleAltSolid className="search-page-result-icon" />
-                    ) : null}
-                    {item.hasHealthyHomeStandard ? (
-                      <RiTreeLine className="search-page-result-icon" />
-                    ) : null}
+                  <div>
+                    <p className="sub-text">
+                      Lifestyle seekers desiring the luxury of space and
+                      separation from neighbours.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="standard-text">
+                      A spacious, contemporary home, with a quality build and
+                      eco-friendly features, plus a strategically hidden large
+                      home workshop / garage and plenty of OSP; located in a
+                      quiet cul-de-sac in the 'burbs (with all the conveniences
+                      of city living), must view this property.
+                    </p>
+                  </div>
+                  <div className="w95 flr next-button-container">
+                    <button
+                      className="debutt expanded-view-more push-left "
+                      onClick={() => setExpandedInfo(!expandedInfo)}
+                    >
+                      Back
+                    </button>
+                    <button className="debutt expanded-view-more push-right ">
+                      View More
+                    </button>
                   </div>
                 </div>
               </div>
@@ -411,12 +452,18 @@ export const Searchpage = () => {
           onClick={toggleSearchOverlay}
         ></a>
         <div
-          className={`search-page-filter-function-container fld ${
-            pageNumber === 1 && searchOverlayActive ? 'show-filter' : ''
+          className={`search-page-filter-function-container fld transition-all-03 ${
+            searchOverlayActive ? 'show-filter' : ''
           }`}
         >
           <div className="search-page-filter-main-container flr">
-            <div className="search-page-filter-function-subcontainer-left">
+            <div
+              className={`search-page-filter-function-subcontainer-left transition-all-03  fld ${
+                pageNumber === 1 && searchOverlayActive
+                  ? 'show-filter-left'
+                  : ''
+              }`}
+            >
               <h4 className="m40">Find your match</h4>
               <div className="search-page-filter-function-location-container m40">
                 <div className="search-page-filter-function-location-location-container searchborder">
@@ -525,7 +572,13 @@ export const Searchpage = () => {
                 </div>
               </div>
             </div>
-            <div className="search-page-filter-function-subcontainer-right">
+            <div
+              className={`search-page-filter-function-subcontainer-right transition-all-03  fld ${
+                pageNumber === 1 && searchOverlayActive
+                  ? 'show-filter-right'
+                  : ''
+              }`}
+            >
               <div className="search-page-features-container">
                 <div className="search-page-features-subcontainer">
                   <p>Property Features</p>
@@ -775,8 +828,14 @@ export const Searchpage = () => {
           }`}
         >
           <div className="search-page-filter-main-container flr">
-            <div className="search-page-filter-function-subcontainer-left">
-              <h4 className="m40">Find your match</h4>
+            <div
+              className={` transition-all-03 search-page-filter-function-subcontainer-left   fld ${
+                pageNumber === 2 && searchOverlayActive
+                  ? 'show-filter-left'
+                  : ''
+              }`}
+            >
+              <h4 className="m40">Refine Your Search</h4>
               <p className="search-page-2-description">
                 “Input your customised criteria to discover your perfect match."{' '}
               </p>
@@ -784,18 +843,9 @@ export const Searchpage = () => {
                 <p>Local Amenities</p>
                 <div className="local-amenities-icons-container fld">
                   <div className="local-amenities-icons-row-1 flr">
-                    <button className="local-amenities-buttons fld">
-                      <RiTreeLine />
-                      <p>Parks</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <IoLibraryOutline />
-                      <p>Library</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <LiaAppleAltSolid />
-                      <p>Grocery</p>
-                    </button>
+                    {renderButton('button1', <RiTreeLine />, 'Parks')}
+                    {renderButton('button2', <IoLibraryOutline />, 'Library')}
+                    {renderButton('button3', <LiaAppleAltSolid />, 'Grocery')}
                     <button
                       className={`local-amenities-buttons fld ${
                         gymActive ? 'hovered' : ''
@@ -807,22 +857,18 @@ export const Searchpage = () => {
                     </button>
                   </div>
                   <div className="local-amenities-icons-row-2 flr">
-                    <button className="local-amenities-buttons fld">
-                      <BsPeople />
-                      <p>Community Center</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <MdOutlineSportsFootball />
-                      <p>Sports Centre</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <IoSchoolOutline />
-                      <p>School</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <HiOutlineBuildingOffice2 />
-                      <p>Work</p>
-                    </button>
+                    {renderButton('button5', <BsPeople />, 'Community Center')}
+                    {renderButton(
+                      'button6',
+                      <MdOutlineSportsFootball />,
+                      'Sports Centre'
+                    )}
+                    {renderButton('button7', <IoSchoolOutline />, 'School')}
+                    {renderButton(
+                      'button8',
+                      <HiOutlineBuildingOffice2 />,
+                      'Work'
+                    )}
                   </div>
                 </div>
               </div>
@@ -830,27 +876,21 @@ export const Searchpage = () => {
                 <p>Rent Includes</p>
                 <div className="local-amenities-icons-container fld">
                   <div className="local-amenities-icons-row-1 flr">
-                    <button className="local-amenities-buttons fld">
-                      <IoWifiSharp />
-                      <p>Wifi</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <FaFaucetDrip />
-                      <p>Water</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <PiPlugsFill />
-                      <p>Power</p>
-                    </button>
-                    <button className="local-amenities-buttons fld">
-                      <MdPropaneTank />
-                      <p>Gas</p>
-                    </button>
+                    {renderButton('wifi', <IoWifiSharp />, 'Wifi')}
+                    {renderButton('water', <FaFaucetDrip />, 'Water')}
+                    {renderButton('power', <PiPlugsFill />, 'Power')}
+                    {renderButton('gas', <MdPropaneTank />, 'Gas')}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="search-page-filter-function-subcontainer-right">
+            <div
+              className={`search-page-filter-function-subcontainer-right transition-all-03  fld ${
+                pageNumber === 2 && searchOverlayActive
+                  ? 'show-filter-right'
+                  : ''
+              }`}
+            >
               <div className="search-page-features-container">
                 <div className="search-page-features-subcontainer">
                   <button
@@ -865,9 +905,9 @@ export const Searchpage = () => {
                 </div>
               </div>
               <div
-                className={`gympage fld ${
+                className={`gympage fld transition-all-03 ${
                   pageNumber === 2 && gymActive && searchOverlayActive
-                    ? 'show-filter'
+                    ? 'show-filter-gympage'
                     : ''
                 }`}
               >
